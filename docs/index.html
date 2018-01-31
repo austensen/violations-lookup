@@ -1,0 +1,79 @@
+<!-- index.html -->
+<head>
+  <title>NYC Housing Code Violation Lookup Tool</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div id="header">
+    NYC Housing Code Violation Lookup Tool
+  </div>
+
+  <hr class="longDivider">
+
+  <div id="bblInput">
+    <label>Borough:</label>
+    <select id="boro" form="bblForm">
+      <option selected="selected" value="1">Manhattan</option>
+      <option value="2">Bronx</option>
+      <option value="3">Brooklyn</option>
+      <option value="4">Queens</option>
+      <option value="5">Staten Island</option>
+    </select>
+    <br>
+    <form id="bblForm">
+      <label>Block:</label>
+      <input 
+        type="text" 
+        id="block" 
+        maxlength="5" 
+        pattern="\d{1,5}" 
+        title="Must be a 1 to 5 digit number" 
+        value="412">
+      <br>
+      <label>Lot:</label>
+      <input 
+        type="text" 
+        id="lot" 
+        maxlength="4" 
+        pattern="\d{1,4}" 
+        title="Must be a 1 to 4 digit number" 
+        value="43">
+      <br>
+    </form>
+  </div>
+
+  <div id="buttonBox">
+    <input type="submit" id="bblSubmit" form="bblForm">
+  </div>
+
+  <hr class="shortDivider">
+
+  <div id='violMessage'></div>
+
+  <div id="violBox">  
+    <div class="violBox">
+      <div class="violClass" id="violClassA"></div>
+      <div class="violClass" id="violClassB"></div>
+      <div class="violClass" id="violClassC"></div>
+    </div>
+    
+    <div class="violBox">
+      <div class="violCount" id="violCountA"></div> 
+      <div class="violCount" id="violCountB"></div>
+      <div class="violCount" id="violCountC"></div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <hr class="longDivider">
+
+    <p id="sourceAttribution">
+      Powered by <a href="https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5"  target="_blank">NYC Open Data</a>
+    </p>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>

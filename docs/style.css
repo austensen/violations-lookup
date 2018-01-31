@@ -1,0 +1,156 @@
+/* color pallete:
+http://paletton.com/#uid=60D0u0kKB++nz+8u0+W+VOxZMub
+*/
+
+
+body {
+  font-family: sans-serif;
+  background: white;
+  color: #006698;
+  overflow: scroll;
+}
+
+
+/* label and input styling from: 
+https://stackoverflow.com/a/10868749/7051239 */
+
+label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 100px;
+  margin: 5px;
+}
+
+input,
+select {
+  display: inline-block;
+  float: left;
+  clear: right;
+  margin: 5px;
+}
+
+hr {
+  border-top: 1px solid black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.longDivider {
+  width: 90%;
+}
+
+.shortDivider {
+  width: 60%;
+}
+
+#header {
+  background: white;
+  color: #006698;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#buttonBox {
+  margin: 0 auto;
+  padding: 20px;
+  width: 75px;
+}
+
+#bblSubmit {
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#bblInput {
+  margin: auto;
+  width: 300px;
+  padding: 20px;
+}
+
+#violMessage {
+  float: center;
+  text-align: center;
+  margin: 25px;
+  font-size: 20px;
+  text-decoration: bold;
+}
+
+#violBox {
+  width: 100%;
+}
+
+.violClass {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+  width: 33%;
+}
+
+.violCount {
+  text-align: center;
+  font-family: monospace;
+  font-size: 50px;
+  font-weight: bold;
+  float: left;
+  width: 33%;
+}
+
+#violCountA {
+  color: gold;
+}
+
+#violCountB {
+  color: darkorange;
+}
+
+#violCountC {
+  color: red;
+}
+
+.footer {
+  position: fixed;
+  background: white;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#sourceAttribution {
+  color: gray;
+  font-size: 15px;
+  text-align: right;
+  padding: 0px 0px;
+  margin-right: 5%;
+  position: center;
+}
+
+#sourceAttribution a:link {
+  color: gray;
+  text-decoration: none;
+}
+
+#sourceAttribution a:visited {
+  color: gray;
+  text-decoration: none;
+}
+
+#sourceAttribution a:hover {
+  color: #06AEFF;
+  text-decoration: underline;
+}
+
+#sourceAttribution a:active {
+  color: #06AEFF;
+  text-decoration: underline;
+}

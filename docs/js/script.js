@@ -6,9 +6,9 @@ $('#bblForm').submit(function(event) {
 
   $('#violationsMessage, #violationsCount').text('');
 
-  var boro = document.getElementById("boro").value;
-  var block = document.getElementById("block").value;
-  var lot = document.getElementById("lot").value;
+  var boro = $('#boro').val();
+  var block = $('#block').val();
+  var lot = $('#lot').val();
 
   Promise.all([
       getHpdJurisdiction(boro, block, lot),

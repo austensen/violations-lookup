@@ -25,15 +25,13 @@ $('#bblForm').submit((event) => {
 
       if (violCounts['Total'] == 0 && !isReg) {
 
-        $('#violMessage')
-          .text('This property is not subject to HPD\'s jurisdiction');
+        $('#violMessage').text('This property is not subject to HPD\'s jurisdiction');
         $('.violClass, .violCount').text('');
 
         return;
       }
 
-      $('#violMessage')
-        .text('Number of Open Housing Code Violations:');
+      $('#violMessage').text('Number of Open Housing Code Violations:');
 
       ['A', 'B', 'C'].forEach((i) => {
         $('#violClass' + i).text('Class ' + i + ':');
@@ -46,15 +44,13 @@ $('#bblForm').submit((event) => {
 
 const getViolationCount = (boro, block, lot) => {
 
-  const url = "https://data.cityofnewyork.us/resource/b2iz-pps8.json";
+  const url = 'https://data.cityofnewyork.us/resource/b2iz-pps8.json';
 
-  const query = "SELECT class" +
-    " WHERE violationstatus='Open'" +
-    " AND boroid=" + boro +
-    " AND block=" + block +
-    " AND lot=" + lot +
-    " |> SELECT class, COUNT(*) AS violCount" +
-    "    GROUP BY class";
+  const query = `SELECT class` +
+    ` WHERE violationstatus='Open'` +
+    `    AND boroid = ${boro} AND block = ${block} AND lot = ${lot}` +
+    ` |> SELECT class, COUNT(*) AS violCount` +
+    `    GROUP BY class`;
 
   const processResp = (data) => {
 
@@ -78,10 +74,8 @@ const getHpdJurisdiction = (boro, block, lot) => {
 
   const url = 'https://data.cityofnewyork.us/resource/sc6a-36xc.json';
 
-  const query = "SELECT COUNT(*) AS regCount" +
-    " WHERE boroid=" + boro +
-    " AND block=" + block +
-    " AND lot=" + lot;
+  const query = `SELECT COUNT(*) AS regCount` +
+    ` WHERE boroid = ${boro} AND block = ${block} AND lot = ${lot}`;
 
   const processResp = (data) => {
     if (data[0].regCount == '0') {
@@ -99,14 +93,38 @@ const getOpenData = (url, query) => {
     $.ajax({
       url: url,
       type: 'GET',
-      data: {'query': query}
-    }).done((data) => {
+      data: {'$query': query}
+    })
+    .done((data) => {
       console.log(data);
       resolve(data);
-    }).fail(() => {
+    })
+    .fail(() => {
       console.log('request failed');
       reject('request failed');
     });
   });
   return promiseObj;
 }
+
+const getBBL = (address) => {
+  const promiseObj = new Promise((resolve, reject) => {
+    $.ajax({
+      url: 'https://geosearch.planninglabs.nyc/v1/search?',
+      type: 'GET',
+      data: {'text': address}
+    })
+    .done((data) => {
+      // console.log(data);
+      const bblLonLat = data.features[0].geometry.coordinates
+      resolve(bblLonLat);
+    })
+    .fail(() => {
+      console.log('request failed');
+      reject('request failed');
+    });
+  });
+  return promiseObj;
+}
+
+getBBL('527 clinton st bk');

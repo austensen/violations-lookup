@@ -123,8 +123,14 @@ const getBBL = (address) => {
     })
     .done((data) => {
       // console.log(data);
-      const bblLonLat = data.features[0].geometry.coordinates
-      resolve(bblLonLat);
+      const lonLat = data.features[0].geometry.coordinates
+
+      const property = {
+        bbl: data.features[0].properties.pad_bbl,
+        latLon: [lonLat[1], lonLat[0]]
+      }
+
+      resolve(property);
     })
     .fail(() => {
       console.log('request failed');
@@ -134,4 +140,25 @@ const getBBL = (address) => {
   return promiseObj;
 }
 
-getBBL('527 clinton st bk');
+
+$('#addressForm').submit((event) => {
+
+  event.preventDefault();
+
+  const address = $('#address').val();
+
+  getBBL(address).then((property) => {
+
+    const circleOptions = {
+      stroke: false,
+      radius: 7,
+      fillOpacity: 0.8,
+      fillColor: 'gold',
+      width: 0
+    }
+
+    L.circleMarker(property.latLon).addTo(map)
+        .bindPopup('<b>' + property.bbl + '</b>');
+  });
+
+});

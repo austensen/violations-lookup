@@ -1,6 +1,6 @@
 // To see all functionality, try lot = [42, 43, 47]
 
-$('#bblForm').submit(function(event) {
+$('#bblForm').submit((event) => {
 
   event.preventDefault();
 
@@ -14,33 +14,33 @@ $('#bblForm').submit(function(event) {
       getHpdJurisdiction(boro, block, lot),
       getViolationCount(boro, block, lot)
     ])
-    .then(function(allData) {
+    .then((allData) => {
       // All data available here in the order it was called.
 
       var isReg = allData[0];
       var violCounts = allData[1];
-      
+
       console.log(isReg);
       console.log(violCounts);
-      
-      if (violCounts["Total"] == 0 && !isReg) {
+
+      if (violCounts['Total'] == 0 && !isReg) {
 
         $('#violMessage')
           .text('This property is not subject to HPD\'s jurisdiction');
         $('.violClass, .violCount').text('');
-  
+
         return;
       }
 
       $('#violMessage')
         .text('Number of Open Housing Code Violations:');
-       
-      ["A", "B", "C"].map(function(i) {
-        $('#violClass' + i).text("Class " + i + ":");
+
+      ['A', 'B', 'C'].forEach((i) => {
+        $('#violClass' + i).text('Class ' + i + ':');
         $('#violCount' + i).text(violCounts[i]);
         console.log(violCounts[i]);
       });
-      
+
     });
 });
 
@@ -57,16 +57,16 @@ function getViolationCount(boro, block, lot) {
     " GROUP BY class";
 
   function processResp(data) {
- 
+
     var violCounts = {"A": 0, "B": 0, "C": 0, "Total": 0};
     var count = 0;
-    
-    data.map(function(row) {
+
+    data.forEach(function(row) {
       count = parseInt(row.violCount);
       violCounts[row.class] = count;
-      violCounts["Total"] += count; 
+      violCounts["Total"] += count;
     });
-    
+
     return violCounts;
   }
 
@@ -95,31 +95,18 @@ function getHpdJurisdiction(boro, block, lot) {
 }
 
 function getOpenData(url, query) {
-  var promiseObj = new Promise(function(resolve, reject) {
+  var promiseObj = new Promise((resolve, reject) => {
     $.ajax({
       url: url,
       type: "GET",
-      data: {
-        "$query": query,
-        "$$app_token": apiKey
-      }
-    }).done(function(data) {
+      data: {"query": query}
+    }).done((data) => {
       console.log(data);
       resolve(data);
-    }).fail(function() {
+    }).fail(() => {
       console.log('request failed');
       reject('request failed');
     });
   });
   return promiseObj;
 }
-
-var apiKey = "q1X82JLIrsTVpLn97wdSxf36c";
-
-// Had an idea to make it so that I don't have to hardcode in my own key, but it just seemed too annoying to make others input their own key and it didn't think it really mattered.
-
-// API entry method taken from : https://jsfiddle.net/user2314737/7cfpxpf7/
-// var apiKey = prompt("Please enter your NYC Open Data API key ", "");
-
-// Tried to add an option for inputting address (like GOAT) to get BBL via geoclient API (attempt: https://jsfiddle.net/austensen/amLdfz8s/)
-// But the geoclient api does not accept cross-origin requests, and it didn't seem worth it for now to mess around with proxy requests.

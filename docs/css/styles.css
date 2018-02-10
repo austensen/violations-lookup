@@ -11,7 +11,7 @@ body {
 }
 
 
-/* label and input styling from: 
+/* label and input styling from:
 https://stackoverflow.com/a/10868749/7051239 */
 
 label {
@@ -45,6 +45,7 @@ hr {
   width: 60%;
 }
 
+
 #header {
   background: white;
   color: #006698;
@@ -55,25 +56,42 @@ hr {
   text-align: center;
 }
 
-#buttonBox {
-  margin: 0 auto;
-  padding: 20px;
-  width: 75px;
+.inputBox {
+  margin: 10 350;
 }
 
-#bblSubmit {
-  padding: 5px;
-  font-size: 20px;
-  border-radius: 8px;
-  margin-top: 5px;
-  margin-bottom: 15px;
+.inputSubBox {
+  height: 130px;
 }
 
 #bblInput {
-  margin: auto;
-  width: 300px;
-  padding: 20px;
+  float: left;
 }
+
+#orBox {
+  margin: 0 20;
+  line-height: 120px;
+  vertical-align: middle;
+  float: left;
+  text-align: center;
+}
+
+#addressInput {
+  height: 130px;
+  float: right;
+}
+
+.buttonBox {
+  position: relative;
+  left: 50%;
+}
+
+.submitButton {
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
 
 #violMessage {
   float: center;

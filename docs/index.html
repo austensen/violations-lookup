@@ -15,43 +15,64 @@
 
   <hr class="longDivider">
 
-  <div id="bblInput">
-    <label>Borough:</label>
-    <select id="boro" form="bblForm">
-      <option selected="selected" value="1">Manhattan</option>
-      <option value="2">Bronx</option>
-      <option value="3">Brooklyn</option>
-      <option value="4">Queens</option>
-      <option value="5">Staten Island</option>
-    </select>
-    <br>
-    <form id="bblForm">
-      <label>Block:</label>
-      <input
-        type="text"
-        id="block"
-        maxlength="5"
-        pattern="\d{1,5}"
-        title="Must be a 1 to 5 digit number"
-        value="412">
+  <div class="inputBox">
+    <div id="bblInput" class="inputSubBox">
+      <label>Borough:</label>
+      <select id="boro" form="bblForm">
+        <option selected="selected" value="1">Manhattan</option>
+        <option value="2">Bronx</option>
+        <option value="3">Brooklyn</option>
+        <option value="4">Queens</option>
+        <option value="5">Staten Island</option>
+      </select>
       <br>
-      <label>Lot:</label>
-      <input
-        type="text"
-        id="lot"
-        maxlength="4"
-        pattern="\d{1,4}"
-        title="Must be a 1 to 4 digit number"
-        value="43">
-      <br>
-    </form>
+      <form id="bblForm">
+        <label>Block:</label>
+        <input
+          type="text"
+          id="block"
+          maxlength="5"
+          pattern="\d{1,5}"
+          title="Must be a 1 to 5 digit number"
+          value="412">
+        <br>
+        <label>Lot:</label>
+        <input
+          type="text"
+          id="lot"
+          maxlength="4"
+          pattern="\d{1,4}"
+          title="Must be a 1 to 4 digit number"
+          value="43">
+        <br>
+      </form>
+      <div class="buttonBox">
+        <input type="submit" class="submitButton" form="bblForm">
+      </div>
+    </div>
+    <div id="orBox" class="inputSubBox">
+      OR
+    </div>
+    <div id="addressInput" class="inputSubBox">
+      <form id="addressForm">
+        <label>Address:</label>
+        <input type="text" id="address">
+        <br>
+      </form>
+      <div class="buttonBox">
+        <input type="submit" class="submitButton" form="addressForm">
+      </div>
+    </div>
+    <div style="clear: both;">
+
+    </div>
   </div>
 
-  <div id="buttonBox">
-    <input type="submit" id="bblSubmit" form="bblForm">
-  </div>
 
+
+  <br>
   <hr class="shortDivider">
+  <br>
 
   <div id='violMessage'></div>
 

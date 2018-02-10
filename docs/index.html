@@ -18,55 +18,30 @@
 
   <div class="inputBox">
     <div id="bblInput" class="inputSubBox">
-      <label>Borough:</label>
-      <select id="boro" form="bblForm">
-        <option selected="selected" value="1">Manhattan</option>
-        <option value="2">Bronx</option>
-        <option value="3">Brooklyn</option>
-        <option value="4">Queens</option>
-        <option value="5">Staten Island</option>
-      </select>
-      <br>
       <form id="bblForm">
-        <label>Block:</label>
+        <label>BBL:</label>
         <input
           type="text"
-          id="block"
-          maxlength="5"
-          pattern="\d{1,5}"
-          title="Must be a 1 to 5 digit number"
-          value="412">
-        <br>
-        <label>Lot:</label>
-        <input
-          type="text"
-          id="lot"
-          maxlength="4"
-          pattern="\d{1,4}"
-          title="Must be a 1 to 4 digit number"
-          value="43">
-        <br>
-      </form>
-      <div class="buttonBox">
+          id="bbl"
+          maxlength="10"
+          pattern="\d{10}"
+          title="Must be a 10 digit number"
+          value="1004120043">
         <input type="submit" class="submitButton" form="bblForm">
-      </div>
+      </form>
     </div>
-    <div id="orBox" class="inputSubBox">
-      OR
-    </div>
+    <div id="orBox" class="inputSubBox">OR</div>
     <div id="addressInput" class="inputSubBox">
       <form id="addressForm">
         <label>Address:</label>
-        <input type="text" id="address">
-        <br>
-      </form>
-      <div class="buttonBox">
+        <input
+          type="text"
+          id="address"
+          value="170 Ludlow Street, Manhattan">
         <input type="submit" class="submitButton" form="addressForm">
-      </div>
+      </form>
     </div>
-    <div style="clear: both;">
-
-    </div>
+    <div style="clear: both;"></div>
   </div>
 
   <hr class="shortDivider">
@@ -74,13 +49,13 @@
   <div id='violMessage'></div>
 
   <div id="violBox">
-    <div class="violBox">
+    <div>
       <div class="violClass" id="violClassA"></div>
       <div class="violClass" id="violClassB"></div>
       <div class="violClass" id="violClassC"></div>
     </div>
 
-    <div class="violBox">
+    <div>
       <div class="violCount" id="violCountA"></div>
       <div class="violCount" id="violCountB"></div>
       <div class="violCount" id="violCountC"></div>
@@ -93,13 +68,11 @@
     <div id='map'></div>
   </div>
 
-  <div class="footer">
-    <hr class="longDivider">
+  <hr class="longDivider">
 
-    <p id="sourceAttribution">
-      Powered by <a href="https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5"  target="_blank">NYC Open Data</a>
-    </p>
-  </div>
+  <p id="sourceAttribution">
+    Powered by <a href="https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5"  target="_blank">NYC Open Data</a>
+  </p>
 
   <script src="//unpkg.com/leaflet@1.3.1/dist/leaflet.js"
   integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="

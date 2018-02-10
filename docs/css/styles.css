@@ -15,11 +15,11 @@ body {
 https://stackoverflow.com/a/10868749/7051239 */
 
 label {
-  display: inline-block;
+  /* display: inline-block; */
   float: left;
-  clear: left;
-  text-align: right;
-  width: 100px;
+  /* clear: left; */
+  /* text-align: right; */
+  /* width: 100px; */
   margin: 5px;
 }
 
@@ -59,21 +59,19 @@ hr {
 .inputBox {
   position: relative;
   left: 25%;
+  height: 50px;
 }
 
 .inputSubBox {
-  height: 130px;
+  height: 50px;
   float: left;
+  margin: 20 20;
 }
 
 #orBox {
-  margin: 0 20;
-  line-height: 120px;
-  vertical-align: middle;
-  float: left;
-  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
 }
-
 
 .buttonBox {
   position: relative;
@@ -81,7 +79,7 @@ hr {
 }
 
 .submitButton {
-  padding: 5px;
+  margin: 5px;
   font-size: 15px;
   border-radius: 8px;
 }
@@ -94,8 +92,11 @@ hr {
 }
 
 #violBox {
+  position: relative;
   height: 75px;
   margin: 20px;
+  width: 60%;
+  left: 20%;
 }
 
 .violClass {
@@ -130,29 +131,21 @@ hr {
 
 #map-container {
   position: relative;
-  margin: 10;
-  height: 600px;
-  width: 80%;
-  left: 10%;
+  margin: 10 0 10 0;
+  height: 400px;
+  width: 60%;
+  left: 20%;
   text-align: center;
 }
 
 #map {
   height: 100%;
 }
-.footer {
-  background: white;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
 
 #sourceAttribution {
   color: gray;
   font-size: 15px;
   text-align: right;
-  padding: 0px 0px;
   margin-right: 5%;
   position: center;
 }

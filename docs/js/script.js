@@ -1,5 +1,12 @@
 // To see all functionality, try lot = [42, 43, 47]
 
+const map = L.map('map').setView([40.7059989, -73.962548], 11);
+
+L.tileLayer('https://b.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
 $('#bblForm').submit((event) => {
 
   event.preventDefault();

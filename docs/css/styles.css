@@ -57,14 +57,12 @@ hr {
 }
 
 .inputBox {
-  margin: 10 350;
+  position: relative;
+  left: 25%;
 }
 
 .inputSubBox {
   height: 130px;
-}
-
-#bblInput {
   float: left;
 }
 
@@ -76,10 +74,6 @@ hr {
   text-align: center;
 }
 
-#addressInput {
-  height: 130px;
-  float: right;
-}
 
 .buttonBox {
   position: relative;
@@ -134,8 +128,19 @@ hr {
   color: red;
 }
 
+#map-container {
+  position: relative;
+  margin: 10;
+  height: 600px;
+  width: 80%;
+  left: 10%;
+  text-align: center;
+}
+
+#map {
+  height: 100%;
+}
 .footer {
-  position: fixed;
   background: white;
   left: 0;
   bottom: 0;

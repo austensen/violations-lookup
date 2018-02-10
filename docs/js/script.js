@@ -6,9 +6,9 @@ $('#bblForm').submit((event) => {
 
   $('#violationsMessage, #violationsCount').text('');
 
-  var boro = $('#boro').val();
-  var block = $('#block').val();
-  var lot = $('#lot').val();
+  const boro = $('#boro').val();
+  const block = $('#block').val();
+  const lot = $('#lot').val();
 
   Promise.all([
       getHpdJurisdiction(boro, block, lot),
@@ -17,8 +17,8 @@ $('#bblForm').submit((event) => {
     .then((allData) => {
       // All data available here in the order it was called.
 
-      var isReg = allData[0];
-      var violCounts = allData[1];
+      const isReg = allData[0];
+      const violCounts = allData[1];
 
       console.log(isReg);
       console.log(violCounts);
@@ -44,27 +44,27 @@ $('#bblForm').submit((event) => {
     });
 });
 
-function getViolationCount(boro, block, lot) {
+const getViolationCount = (boro, block, lot) => {
 
-  var url = "https://data.cityofnewyork.us/resource/b2iz-pps8.json";
+  const url = "https://data.cityofnewyork.us/resource/b2iz-pps8.json";
 
-  var query = "SELECT class" +
+  const query = "SELECT class" +
     " WHERE violationstatus='Open'" +
     " AND boroid=" + boro +
     " AND block=" + block +
     " AND lot=" + lot +
     " |> SELECT class, COUNT(*) AS violCount" +
-    " GROUP BY class";
+    "    GROUP BY class";
 
-  function processResp(data) {
+  const processResp = (data) => {
 
-    var violCounts = {"A": 0, "B": 0, "C": 0, "Total": 0};
-    var count = 0;
+    const violCounts = {'A': 0, 'B': 0, 'C': 0, 'Total': 0};
+    let count = 0;
 
-    data.forEach(function(row) {
+    data.forEach((row) => {
       count = parseInt(row.violCount);
       violCounts[row.class] = count;
-      violCounts["Total"] += count;
+      violCounts['Total'] += count;
     });
 
     return violCounts;
@@ -74,16 +74,16 @@ function getViolationCount(boro, block, lot) {
 }
 
 
-function getHpdJurisdiction(boro, block, lot) {
+const getHpdJurisdiction = (boro, block, lot) => {
 
-  var url = "https://data.cityofnewyork.us/resource/sc6a-36xc.json";
+  const url = 'https://data.cityofnewyork.us/resource/sc6a-36xc.json';
 
-  var query = "SELECT COUNT(*) AS regCount" +
+  const query = "SELECT COUNT(*) AS regCount" +
     " WHERE boroid=" + boro +
     " AND block=" + block +
     " AND lot=" + lot;
 
-  function processResp(data) {
+  const processResp = (data) => {
     if (data[0].regCount == '0') {
       return false;
     } else {
@@ -94,12 +94,12 @@ function getHpdJurisdiction(boro, block, lot) {
   return getOpenData(url, query).then(processResp);
 }
 
-function getOpenData(url, query) {
-  var promiseObj = new Promise((resolve, reject) => {
+const getOpenData = (url, query) => {
+  const promiseObj = new Promise((resolve, reject) => {
     $.ajax({
       url: url,
-      type: "GET",
-      data: {"query": query}
+      type: 'GET',
+      data: {'query': query}
     }).done((data) => {
       console.log(data);
       resolve(data);

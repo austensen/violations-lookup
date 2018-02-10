@@ -94,15 +94,14 @@ hr {
 
 
 #violMessage {
-  float: center;
   text-align: center;
-  margin: 25px;
+  margin: 20px;
   font-size: 20px;
-  text-decoration: bold;
 }
 
 #violBox {
-  width: 100%;
+  height: 75px;
+  margin: 20px;
 }
 
 .violClass {
@@ -153,22 +152,6 @@ hr {
   position: center;
 }
 
-#sourceAttribution a:link {
-  color: gray;
-  text-decoration: none;
-}
-
-#sourceAttribution a:visited {
-  color: gray;
-  text-decoration: none;
-}
-
-#sourceAttribution a:hover {
-  color: #06AEFF;
-  text-decoration: underline;
-}
-
-#sourceAttribution a:active {
-  color: #06AEFF;
-  text-decoration: underline;
-}
+#sourceAttribution a { text-decoration: underline; }
+#sourceAttribution a:link, a:visited { color: gray; }
+#sourceAttribution a:hover, a:active { color: #06AEFF; }
